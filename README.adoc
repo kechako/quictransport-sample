@@ -1,0 +1,40 @@
+= quictransport-sample
+
+QuicTransport sample program written in Go.
+
+== Build and Run sample
+
+You must install golang to compile quictransport-sample.
+
+Download golang from bellow, and install it.
+
+https://golang.org/dl/
+
+Type following to generate TLS certificate and private key using https://github.com/kechako/oreore[oreore]:
+
+[source, console]
+----
+$ go get github.com/kechako/oreore
+$ oreore
+----
+
+Type following to build and run sample:
+
+[source, console]
+----
+$ git clone https://github.com/kechako/quictransport-sample.git
+$ cd quictransport-sample
+$ go build
+$ ./quictransport-sample --allowed googlechrome.github.io
+----
+
+Launch Google Chrome with a parameter to ignore certificate errors
+
+[source, console]
+----
+$ oreore hash
+ppUlK3WO3/bTv47HHhq1GVIr7SL9RRecozPk65kLIOE=
+$ /Applications/Google\ Chrome\ Beta.app/Contents/MacOS/Google\ Chrome \
+--origin-to-force-quic-on=localhost:4433 \
+--ignore-certificate-errors-spki-list=ppUlK3WO3/bTv47HHhq1GVIr7SL9RRecozPk65kLIOE=
+----
